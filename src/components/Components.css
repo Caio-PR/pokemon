@@ -1,0 +1,121 @@
+.Menu {
+    display: flex;
+    align-items: flex-start;
+    justify-content:center;
+
+}
+
+.MenuObj {
+    margin: 10px
+}
+
+#contactsDiv {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+  align-items: center;
+}
+
+#contactsDiv * {
+  padding: 5px;
+}
+
+a {
+  color: red;
+}
+
+a:hover {
+  color: rgba(255, 0, 0, 0.596)
+}
+
+#githubpng {
+  width: 5vh;
+}
+
+@media (max-width:767px) {
+    .ErrorPage {
+      height: 90vh;
+      font-size: 1vw !important;
+      
+    }
+    .ErrorPage img {
+      width: 50vw;
+    }
+
+    header {
+        font-family: "Poppins", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 2em;
+      }
+
+    .pokemonImage {
+        max-width: 30vw;
+        min-width: 10vw;
+      }
+    
+      #div-table {
+        display: flex;
+        justify-self: center;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+      }
+    
+      #table {
+        flex-direction: column;
+        justify-items: center;
+        min-width: 100%;
+      }
+    
+      #table td {
+        font-size: 3vw;
+        min-width: 30px;
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+
+  }
+  
+  @media (min-width: 768px) {
+    .ErrorPage {
+      height: 90vh;
+      font-size: 1.2vh;
+    }
+  
+    .ErrorPage img {
+      width: 50vh;
+    }
+
+    header {
+        font-family: "Poppins", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 3.2em;
+      }
+  
+    .pokemonImage {
+      max-width: 30vw;
+      min-width: 6.5vw;
+    }
+  
+    #div-table {
+      display: flex;
+      justify-self: center;
+      justify-content: center;
+      align-items: center;
+      width: 100vw;
+    }
+  
+    #table {
+      flex-direction: column;
+      justify-items: center;
+      min-width: 100%;
+    }
+  
+    #table td {
+      min-width: 100px;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+  }
