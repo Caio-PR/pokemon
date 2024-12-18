@@ -39,6 +39,7 @@ const Pokemon = () => {
 
             const promises = resp.data.types.map(async (typeURL) => {
                 if (typeURL.hasOwnProperty("type")) {
+                    console.log(typeURL)
                     const url = typeURL.type.url
                     const imageUrl = await getPokemonType(url)
                     return `<img src="${imageUrl}" alt="${typeURL.type.name}">`
@@ -57,7 +58,7 @@ const Pokemon = () => {
     async function getPokemonType(typeURL) {
         try {
             const apiTipo = await axios.get(typeURL);
-            const imagemURL = apiTipo.data.sprites["generation-iii"].emerald.name_icon;
+            const imagemURL = apiTipo.data.sprites["generation-viii"]["sword-shield"].name_icon;
             return imagemURL;
         } catch (error) {
             console.error('Erro ao carregar os dados do tipo de Pokémon:', error);
@@ -79,7 +80,7 @@ const Pokemon = () => {
                     <tr className='pokemon-card-value'>
                         <td id="tipo"></td>
                         <td id="nome"></td>
-                        <td><img src="" id="sprite"></img></td>
+                        <td><img src="" id='sprite'></img></td>
                     </tr>
                     <tr>
                         <td></td>

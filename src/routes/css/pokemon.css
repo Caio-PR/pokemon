@@ -26,10 +26,10 @@
     background-color: #444444;
 }
 
-#pokemon-card img {
-    
+#tipo {
+    height: 100%;
 }
 
-#imagemPokemon {
-
+#tipo img{
+    width: 100px;
 }

@@ -9,8 +9,8 @@ import {
   RouterProvider
 } from "react-router-dom";
 
-import Home from "./routes/jsx/Home.jsx"
-import Contacts from './routes/jsx/Contacts.jsx';
+import Inicio from "./routes/jsx/Inicio.jsx"
+import Contatos from './routes/jsx/Contatos.jsx';
 import ErrorPage from './routes/jsx/ErrorPage.jsx';
 import Pokemon from './routes/jsx/Pokemon.jsx';
 
@@ -22,11 +22,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home />
+        element: <Inicio />
       },
       {
-        path: "/contacts",
-        element: <Contacts />
+        path: "/contatos",
+        element: <Contatos />
       },
       {
         path: "/pokemon/:pokemonName",

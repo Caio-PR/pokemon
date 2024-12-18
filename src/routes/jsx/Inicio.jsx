@@ -3,7 +3,7 @@ import Menu from '../../components/jsx/Menu.jsx'
 import Pokedex from '../../components/jsx/Pokedex.jsx'
 import Header from '../../components/jsx/Header.jsx'
 
-const Home = () => {
+const Inicio = () => {
     return (
         <>
             <Header />
@@ -13,4 +13,4 @@ const Home = () => {
     )
 }
 
-export default Home
+export default Inicio

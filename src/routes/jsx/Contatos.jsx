@@ -2,9 +2,9 @@ import React, { useEffect } from "react"
 import Menu from "../../components/jsx/Menu"
 import GitHubIcon from "/github-icon.png"
 import Header from "../../components/jsx/Header"
-import '../css/contacts.css'
+import '../css/contatos.css'
 
-const Contacts = () => {
+const Contato = () => {
     
     useEffect(() => {
         setIconPath()
@@ -20,11 +20,11 @@ const Contacts = () => {
             <Header />
             <Menu />
             <div id="contactsDiv">
-            <h4>You can reach me out on </h4><a target="_blank" href="https://github.com/Caio-PR">Github</a><img id="githubpng"></img>
+            <h4>Você pode me encontrar no </h4><a target="_blank" href="https://github.com/Caio-PR">Github</a><img id="githubpng"></img>
             </div>
             
         </div>
     )
 }
 
-export default Contacts
+export default Contato
