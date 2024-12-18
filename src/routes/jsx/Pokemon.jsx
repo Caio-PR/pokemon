@@ -15,24 +15,43 @@ const Pokemon = () => {
         }
     }, [pokemonName])
 
+    async function pokemonNameConversion(pokemonName) {
+        let NewName = pokemonName.charAt(0).toUpperCase()
+        for (let i = 1; i < pokemonName.length; i++) {
+            if (pokemonName[i] === "-") {
+                NewName += " "
+                NewName += pokemonName[i+1].toUpperCase()
+                i++
+            } else {
+                NewName += pokemonName[i]
+            }
+        }
+        
+        return NewName
+    }
+
     async function insertPokemon(pokemonName) {
         try {
             const resp = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
             const cellTipo = document.querySelector('#tipo');
             const cellNome = document.querySelector('#nome'); 
-            const cellEvolucao = document.querySelector('#evolucao');
-            cellNome.innerHTML = resp.data.name;
-            const promises = resp.data.types.map(async (typeObj) => {
-                if (typeObj.hasOwnProperty("type")) {
-                    const url = typeObj.type.url;
-                    const imageUrl = await getPokemonType(url);
-                    return `<img src="${imageUrl}" alt="${typeObj.type.name}">`;
+            const cellsprite = document.querySelector('#sprite');
+
+            const promises = resp.data.types.map(async (typeURL) => {
+                if (typeURL.hasOwnProperty("type")) {
+                    const url = typeURL.type.url
+                    const imageUrl = await getPokemonType(url)
+                    return `<img src="${imageUrl}" alt="${typeURL.type.name}">`
                 }
-            });
-            const imgTags = await Promise.all(promises);
-            cellTipo.innerHTML = imgTags.join('');
+            })
+
+            const imgTags = await Promise.all(promises)
+            
+            cellTipo.innerHTML = imgTags.join('')
+            cellNome.innerHTML = await pokemonNameConversion(resp.data.name);
+            cellsprite.src = resp.data.sprites.front_default
         } catch (error) {
-            console.error('Erro ao carregar os dados do Pokémon:', error);
+            console.error('Erro ao carregar os dados do Pokémon:', error)
         }
     }
     async function getPokemonType(typeURL) {
@@ -50,17 +69,22 @@ const Pokemon = () => {
         <div id="Pokecard">
             <Header />
             <Menu />
-            <table id="pokemon-table">
+            <table id="pokemon-card">
                 <tbody>
-                    <tr>
+                    <tr className='pokemon-card-header'>
                         <td>Tipo</td>
                         <td>Nome</td>
-                        <td>Evolução</td>
+                        <td>Sprite</td>
                     </tr>
-                    <tr>
+                    <tr className='pokemon-card-value'>
                         <td id="tipo"></td>
                         <td id="nome"></td>
-                        <td id="evolucao"></td>
+                        <td><img src="" id="sprite"></img></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><img id="imagemPokemon"></img></td>
+                        <td></td>
                     </tr>
                 </tbody>
             </table>

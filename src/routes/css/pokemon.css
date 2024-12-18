@@ -2,14 +2,34 @@
     margin: 0;
     display: flex;
     flex-direction: column;
-    margin-top: 50px;
 }
 
-#pokemon-table {
+#pokemon-card {
+    display: flex;
     justify-self: center;
+    justify-content: center;
+    margin-top: 50px;
     width: 100%;
 }
 
-#pokemon-table td {
+#pokemon-card tbody {
+    width: 50%;
+    justify-items: center;
+}
+
+#pokemon-card td {
     width: 200px;
+    height: 50px;
+}
+
+.pokemon-card-value td:hover {
+    background-color: #444444;
+}
+
+#pokemon-card img {
+    
+}
+
+#imagemPokemon {
+
 }
