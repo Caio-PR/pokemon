@@ -3,7 +3,8 @@
 }
 
 .cell {
-  background-color: #242424
+  background-color: #242424;
+  color:white;
 }
 
 .cell:hover {
