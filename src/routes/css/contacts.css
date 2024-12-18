@@ -1,0 +1,22 @@
+#contactsDiv {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+    align-items: center;
+  }
+  
+  #contactsDiv * {
+    padding: 5px;
+  }
+  
+  #githubpng {
+    width: 5vh;
+  }
+
+  #contactsDiv a {
+    color:blueviolet
+  }
+
+  #contactsDiv a:hover {
+    color:rgb(93, 30, 151)
+  }

@@ -1,0 +1,15 @@
+#Pokecard {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+}
+
+#pokemon-table {
+    justify-self: center;
+    width: 100%;
+}
+
+#pokemon-table td {
+    width: 200px;
+}

@@ -1,0 +1,21 @@
+@media (max-width:767px) {
+    .ErrorPage {
+      height: 90vh;
+      font-size: 1vw !important;
+      
+    }
+    .ErrorPage img {
+      width: 50vw;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .ErrorPage {
+      height: 90vh;
+      font-size: 1.2vh;
+    }
+  
+    .ErrorPage img {
+      width: 50vh;
+    }
+  }

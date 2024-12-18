@@ -9,9 +9,9 @@ body {
 }
 
 #root, #contacts {
+  padding:0;
   margin:0;
   min-width: 100%;
-  padding-top: 30px;
 }
 
 
@@ -82,19 +82,4 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-}
-
-#header-div {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
-
-#header-div header, img {
-  padding: 20px;
-}
-
-#pokeballImg {
-  max-width: 70px;
 }

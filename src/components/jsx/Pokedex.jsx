@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import axios from 'axios';
+import '../css/pokedex.css'
 
 var screenScale
 var offset = 0
@@ -62,9 +63,11 @@ async function handleScroll() {
 }
 
 async function placePokemonFrame(pokemonName, cell) {
-    const image = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
+    const resp = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
+    const imageURL = resp.data.sprites.front_default
     let pokemonNewName = pokemonNameConversion(pokemonName)
-    cell.innerHTML = `<p>${pokemonNewName}</p><img src="${image.data.sprites.front_default}" class="pokemonImage" alt="${pokemonNewName}" />`
+    const cardURL = `http://localhost:5173/pokemon/${pokemonName}`
+    cell.innerHTML = `<a target="_blank" href=${cardURL}><p>${pokemonNewName}</p><img src="${imageURL}" class="pokemonImage" alt="${pokemonNewName}" /></a>`
 }
 
 function pokemonNameConversion(pokemonName) {
@@ -89,7 +92,11 @@ const Pokedex = () => {
         offset = 0
         getPokedex(limit, offset)}, [])
     return (
-        <div id="pokedex"></div>
+        <>
+            <div id="pokedex-header">Main Feed</div>
+            <div id="pokedex"></div>
+        </>
+        
     )
 }
 

@@ -1,52 +1,17 @@
-.Menu {
-    display: flex;
-    align-items: flex-start;
-    justify-content:center;
-
-}
-
-.MenuObj {
-    margin: 10px
-}
-
-#contactsDiv {
-  display: flex;
-  justify-content: center;
-  margin: 20px;
-  align-items: center;
-}
-
-#contactsDiv * {
-  padding: 5px;
-}
-
-a {
-  color: red;
-}
-
-a:hover {
-  color: rgba(255, 0, 0, 0.596)
-}
-
-#githubpng {
-  width: 5vh;
-}
-
 @media (max-width:767px) {
-    .ErrorPage {
-      height: 90vh;
-      font-size: 1vw !important;
-      
-    }
-    .ErrorPage img {
-      width: 50vw;
-    }
-
-    header {
+   header {
         font-family: "Poppins", sans-serif;
         font-weight: 400;
         font-style: normal;
         font-size: 2em;
+      }
+
+      #pokedex-header {
+        display: flex;
+        align-self: center;
+        align-items: center;
+        font-size: 5vw;
+        height: 100px;
       }
 
     .pokemonImage {
@@ -78,15 +43,6 @@ a:hover {
   }
   
   @media (min-width: 768px) {
-    .ErrorPage {
-      height: 90vh;
-      font-size: 1.2vh;
-    }
-  
-    .ErrorPage img {
-      width: 50vh;
-    }
-
     header {
         font-family: "Poppins", sans-serif;
         font-weight: 400;
@@ -117,5 +73,13 @@ a:hover {
       min-width: 100px;
       padding-left: 15px;
       padding-right: 15px;
+    }
+
+    #pokedex-header {
+      display: flex;
+      align-self: center;
+      align-items: center;
+      font-size: 40px;
+      height: 200px;
     }
   }
