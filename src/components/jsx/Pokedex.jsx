@@ -67,7 +67,7 @@ async function placePokemonFrame(pokemonName, cell) {
     const imageURL = resp.data.sprites.front_default
     let pokemonNewName = pokemonNameConversion(pokemonName)
     const cardURL = `http://localhost:5173/pokemon/${pokemonName}`
-    cell.innerHTML = `<a target="_blank" href=${cardURL}><p>${pokemonNewName}</p><img src="${imageURL}" class="pokemonImage" alt="${pokemonNewName}" /></a>`
+    cell.innerHTML = `<a target="_blank" href=${cardURL}><div class="cell"><p>${pokemonNewName}</p><img src="${imageURL}" class="pokemonImage" alt="${pokemonNewName}" /></div></a>`
 }
 
 function pokemonNameConversion(pokemonName) {

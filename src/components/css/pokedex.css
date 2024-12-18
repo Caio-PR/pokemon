@@ -1,3 +1,15 @@
+#pokedex a {
+  min-width: 100%;
+}
+
+.cell {
+  background-color: #242424
+}
+
+.cell:hover {
+  background-color: #444444
+}
+
 @media (max-width:767px) {
    header {
         font-family: "Poppins", sans-serif;
