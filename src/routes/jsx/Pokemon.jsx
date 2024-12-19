@@ -33,31 +33,48 @@ const Pokemon = () => {
     async function insertPokemon(pokemonName) {
         try {
             const resp = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
-            const cellTipo = document.querySelector('#tipo');
-            const cellNome = document.querySelector('#nome'); 
-            const cellsprite = document.querySelector('#sprite');
+            const pokemonCard = document.querySelector('#pokemon-card')
+            pokemonCard.innerHTML = `<div id='name_content'>Nome Pokemon</div>
+            <div id='image_title'>Imagem</div>
+            <div id='image_content'><img id='sprite' src="" /></div>
+            <div id='type_title'>Tipo</div>
+            <div id='type_content'></div>
+            <div id='base_title'>Base Status</div>
+            <div id='base_content'></div>`
+            
+            const img_type = document.querySelector('#type_content');
+            const divNome = document.querySelector('#name_content'); 
+            const imgSprite = document.querySelector('#sprite');
+            
+            const base_content = document.querySelector('#base_content')
 
             const promises = resp.data.types.map(async (typeURL) => {
                 if (typeURL.hasOwnProperty("type")) {
-                    console.log(typeURL)
                     const url = typeURL.type.url
-                    const imageUrl = await getPokemonType(url)
-                    return `<img src="${imageUrl}" alt="${typeURL.type.name}">`
+                    const imageUrl = await getTypeURL(url)
+                    return `<img class="type_img" src="${imageUrl}" alt="${typeURL.type.name}">`
                 }
             })
-
-            const imgTags = await Promise.all(promises)
+            imgSprite.src = resp.data.sprites.front_default
+            divNome.innerHTML = await pokemonNameConversion(resp.data.name)
             
-            cellTipo.innerHTML = imgTags.join('')
-            cellNome.innerHTML = await pokemonNameConversion(resp.data.name);
-            cellsprite.src = resp.data.sprites.front_default
+            const imgTags = await Promise.all(promises)
+            for (let a of imgTags) {
+                img_type.innerHTML += a
+            }
+
+            for (let a of resp.data.stats) {
+                base_content.innerHTML += await pokemonNameConversion(a.stat.name) + ": " + a.base_stat + "<br />"
+            }
+            
+
         } catch (error) {
             console.error('Erro ao carregar os dados do Pokémon:', error)
         }
     }
-    async function getPokemonType(typeURL) {
+    async function getTypeURL(url) {
         try {
-            const apiTipo = await axios.get(typeURL);
+            const apiTipo = await axios.get(url);
             const imagemURL = apiTipo.data.sprites["generation-viii"]["sword-shield"].name_icon;
             return imagemURL;
         } catch (error) {
@@ -70,25 +87,7 @@ const Pokemon = () => {
         <div id="Pokecard">
             <Header />
             <Menu />
-            <table id="pokemon-card">
-                <tbody>
-                    <tr className='pokemon-card-header'>
-                        <td>Tipo</td>
-                        <td>Nome</td>
-                        <td>Sprite</td>
-                    </tr>
-                    <tr className='pokemon-card-value'>
-                        <td id="tipo"></td>
-                        <td id="nome"></td>
-                        <td><img src="" id='sprite'></img></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td><img id="imagemPokemon"></img></td>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
+            <div id='pokemon-card'></div>
         </div>
     )
 }

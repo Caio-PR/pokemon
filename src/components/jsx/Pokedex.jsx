@@ -9,7 +9,6 @@ const limit = 50
 async function getPokedex(limit, offset) {
     const pokedex = await axios.get(`https://pokeapi.co/api/v2/pokemon/?limit=${limit}&offset=${offset}`)
     if (pokedex.data.results.length === 0) {
-        console.log(pokedex)
         alert("pokedex chegou ao fim")
         window.removeEventListener('scroll', handleScroll)
     } else {

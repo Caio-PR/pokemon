@@ -1,35 +1,91 @@
+* {
+    box-sizing: border-box;
+}
+
 #Pokecard {
     margin: 0;
     display: flex;
     flex-direction: column;
+    
 }
 
 #pokemon-card {
-    display: flex;
-    justify-self: center;
-    justify-content: center;
+    color:#000000;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    min-height: 400px;
+    max-height: 800px;
+    align-self: center;
     margin-top: 50px;
+    width: 30vw;
+    background-image: linear-gradient(to left, #F56992,#990001)
+}
+
+#pokemon-card div {
+    border: solid, .1px, #000000;
+}
+
+#name_content {
+    grid-column-start: 1;
+    grid-column-end: 8;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    font-size: 30px;
+    font-weight: 600;
+    align-content: center;
+}
+
+#image_title {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    align-content: center;
+}
+
+#image_content {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    align-content: center;
+    background-image: url('/grassyfield.png');
+    background-size: cover;
+    background-position: right;
+}
+
+#type_title {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    align-content: center;
+}
+
+#type_content {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    align-content: center;
+}
+
+.type_img {
     width: 100%;
 }
 
-#pokemon-card tbody {
-    width: 50%;
-    justify-items: center;
+#base_title {
+    grid-column-start: 4;
+    grid-column-end: 8;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    align-content: center;
 }
 
-#pokemon-card td {
-    width: 200px;
-    height: 50px;
-}
-
-.pokemon-card-value td:hover {
-    background-color: #444444;
-}
-
-#tipo {
-    height: 100%;
-}
-
-#tipo img{
-    width: 100px;
+#base_content {
+    grid-column-start: 4;
+    grid-column-end: 8;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    align-content: center;
 }
